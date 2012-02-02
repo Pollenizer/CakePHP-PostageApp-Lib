@@ -14,8 +14,8 @@ Copy PostageApp.php to your app/Lib directory
 CONFIGURATION
 ---------------
 
-1. Copy postagepp.php.default to your app/Config directory
-2. Rename postagepp.php.default to postagepp.php
+1. Copy postageapp.php.default to your app/Config directory
+2. Rename postageapp.php.default to postageapp.php
 3. Update your apiKey in postageapp.php (all other variables are optional)
 
     $config = array(

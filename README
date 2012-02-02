@@ -1,0 +1,47 @@
+CakePHP PostageApp Lib
+
+A CakePHP Lib class used for interfacing with the PostageApp API.
+
+For a full list of available methods and properties, please refer to the PostageApp API documentation here:
+
+http://help.postageapp.com/kb/api/api-overview
+
+INSTALLATION
+------------
+
+Copy PostageApp.php to your app/Lib directory
+
+CONFIGURATION
+---------------
+
+1. Copy postagepp.php.default to your app/Config directory
+2. Rename postagepp.php.default to postagepp.php
+3. Update your apiKey in postageapp.php (all other variables are optional)
+
+    $config = array(
+        'PostageApp' => array(
+            'apiKey' => 'YOUR API KEY',
+            'attachments' => array(),
+            'from' => null,
+            'htmlMessage' => null,
+            'recipientOverride' => null,
+            'recipients' => null,
+            'subject' => null,
+            'template' => null,
+            'textMessage' => null,
+            'uid' => null,
+            'variables' => array(),
+        )
+    );
+
+USAGE
+---------------
+
+The following example shows how to send a simple text email:
+
+    App::uses('PostageApp', 'Lib');
+    $PostageApp = new PostageApp();
+    $PostageApp->recipients('mail@example.com');
+    $PostageApp->subject('This is the subject');
+    $PostageApp->textMessage('This is the message');
+    $PostageApp->sendMessage();

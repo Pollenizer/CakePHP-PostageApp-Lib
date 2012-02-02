@@ -1,0 +1,17 @@
+<?php
+
+$config = array(
+    'PostageApp' => array(
+        'apiKey' => null,
+        'attachments' => array(),
+        'from' => null,
+        'htmlMessage' => null,
+        'recipientOverride' => null,
+        'recipients' => null,
+        'subject' => null,
+        'template' => null,
+        'textMessage' => null,
+        'uid' => null,
+        'variables' => array(),
+    )
+);

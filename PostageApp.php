@@ -372,9 +372,6 @@ class PostageApp
      */
     public function subject($value = null)
     {
-        if (configure::read('debug') > 0) {
-            $value = '[[STAGING]] ' . $value;
-        }
         $this->subject = $value;
         return $this;
     }

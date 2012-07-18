@@ -151,6 +151,13 @@ class PostageApp
     public $variables = array();
 
     /**
+     * Headers
+     *
+     * @var array
+     */
+    public $headers = array();
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -331,6 +338,7 @@ class PostageApp
                 'recipient_override' => $this->recipientOverride
             )
         );
+        $this->request['arguments']['headers'] = array_merge($this->request['arguments']['headers'], $this->headers);
         if (!$this->uid) {
             $this->uid = $this->request['uid'] = sha1(time() . json_encode($this->request['arguments']));
         }
@@ -364,6 +372,9 @@ class PostageApp
      */
     public function subject($value = null)
     {
+        if (configure::read('debug') > 0) {
+            $value = '[[STAGING]] ' . $value;
+        }
         $this->subject = $value;
         return $this;
     }
@@ -415,4 +426,16 @@ class PostageApp
         $this->variables = $value;
         return $this;
     }
+
+    /**
+     * Headers
+     *
+     * @param array $value
+     * @return PostageApp $this
+     */
+    public function headers($value = array())
+    {
+        $this->headers = $value;
+        return $this;
+    } 
 }
